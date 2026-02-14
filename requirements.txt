@@ -1,0 +1,23 @@
+# Indic Voice Pipeline — Python Dependencies
+#
+# Install all: pip install -r requirements.txt
+#
+# Note: PyTorch version depends on your system. The version below
+# works on macOS with Apple Silicon (MPS). For CUDA, visit:
+# https://pytorch.org/get-started/locally/
+
+# ── Video Downloader ──
+yt-dlp>=2024.0.0
+
+# ── Whisper Transcribe ──
+openai-whisper>=20231117
+torch>=2.0.0
+transformers==4.46.3
+accelerate>=0.25.0
+numpy<2
+
+# ── Audio Processing ──
+# ffmpeg must be installed separately:
+#   macOS:  brew install ffmpeg
+#   Ubuntu: sudo apt install ffmpeg
+#   Windows: choco install ffmpeg
