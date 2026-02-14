@@ -100,7 +100,7 @@ Transcribe and translate audio/video using OpenAI Whisper + fine-tuned Indian la
 **One-line install:**
 
 ```bash
-git clone https://github.com/ARC-TECH-LABS/indic-voice-pipeline.git
+git clone https://github.com/humancto/indic-voice-pipeline.git
 cd indic-voice-pipeline && bash install.sh
 ```
 
@@ -446,5 +446,5 @@ The fine-tuned models have their own licenses:
 
 <p align="center">
   <strong>Built with care for Indian languages.</strong><br/>
-  <sub>By <a href="https://github.com/ARC-TECH-LABS">ARC Tech Labs</a></sub>
+  <sub>By <a href="https://github.com/humancto">HumanCTO</a></sub>
 </p>

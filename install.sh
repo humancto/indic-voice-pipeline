@@ -6,9 +6,9 @@
 # Claude Code's global skills directory (~/.claude/skills/).
 #
 # Usage:
-#   curl -fsSL https://raw.githubusercontent.com/ARC-TECH-LABS/indic-voice-pipeline/main/install.sh | bash
+#   curl -fsSL https://raw.githubusercontent.com/humancto/indic-voice-pipeline/main/install.sh | bash
 #   — or —
-#   git clone https://github.com/ARC-TECH-LABS/indic-voice-pipeline.git
+#   git clone https://github.com/humancto/indic-voice-pipeline.git
 #   cd indic-voice-pipeline && bash install.sh
 #
 
@@ -54,7 +54,7 @@ else
     TEMP_DIR="$(mktemp -d)"
     trap "rm -rf $TEMP_DIR" EXIT
     info "Cloning repository..."
-    git clone --quiet https://github.com/ARC-TECH-LABS/indic-voice-pipeline.git "$TEMP_DIR/repo"
+    git clone --quiet https://github.com/humancto/indic-voice-pipeline.git "$TEMP_DIR/repo"
     SOURCE_DIR="$TEMP_DIR/repo/skills"
 fi
 
