@@ -835,8 +835,8 @@ footer .container{text-align:center}
           <tr>
             <td><code>--model</code></td>
             <td>Whisper model size: tiny, base, small, medium, large</td>
-            <td class="flag-default">base</td>
-            <td><code>--model large</code></td>
+            <td class="flag-default">large</td>
+            <td><code>--model base</code></td>
           </tr>
           <tr>
             <td><code>--engine</code></td>
@@ -1254,7 +1254,7 @@ footer .container{text-align:center}
       <div class="faq-item">
         <div class="faq-q">What's the default Whisper model size?</div>
         <div class="faq-a"><div class="faq-a-inner">
-          <strong>base</strong> (74 MB) — good balance of speed and accuracy for clear audio. Use <code>--model medium</code> (769 MB) for non-English or noisy audio, or <code>--model large</code> (1.5 GB) for maximum accuracy. When you pass <code>--language te</code> (Telugu) or other Indian languages, a fine-tuned model is loaded automatically regardless of <code>--model</code>.
+          <strong>large</strong> (1.5 GB) — maximum accuracy out of the box. Use <code>--model base</code> (74 MB) for faster processing on clear audio, or <code>--model medium</code> (769 MB) as a middle ground. When you pass <code>--language te</code> (Telugu) or other Indian languages, a fine-tuned model is loaded automatically regardless of <code>--model</code>. The large model is downloaded once and cached at <code>~/.cache/whisper/</code>.
         </div></div>
       </div>
 

@@ -1225,8 +1225,8 @@ def main():
     # Common args for transcribe/translate
     def add_common_args(p):
         p.add_argument("file", help="Path to audio or video file")
-        p.add_argument("--model", default="base", choices=["tiny", "base", "small", "medium", "large"],
-                        help="Whisper model size (default: base). Ignored when using a HuggingFace model.")
+        p.add_argument("--model", default="large", choices=["tiny", "base", "small", "medium", "large"],
+                        help="Whisper model size (default: large). Ignored when using a HuggingFace model.")
         p.add_argument("--language", default=None,
                         help="Source language code (e.g. 'en', 'te', 'hi'). Auto-detected if not set. "
                              "For Telugu ('te'), automatically uses vasista22/whisper-telugu-large-v2.")
@@ -1262,8 +1262,8 @@ def main():
     # --- detect ---
     p_detect = subparsers.add_parser("detect", help="Detect language of audio")
     p_detect.add_argument("file", help="Path to audio or video file")
-    p_detect.add_argument("--model", default="base", choices=["tiny", "base", "small", "medium", "large"],
-                          help="Whisper model size (default: base)")
+    p_detect.add_argument("--model", default="large", choices=["tiny", "base", "small", "medium", "large"],
+                          help="Whisper model size (default: large)")
 
     # --- info ---
     p_info = subparsers.add_parser("info", help="Show audio file metadata")

@@ -163,7 +163,7 @@ Once installed, just talk to Claude naturally. The skills are triggered automati
 | Flag             | What it does                                                   | Default             | Example                                        |
 | ---------------- | -------------------------------------------------------------- | ------------------- | ---------------------------------------------- |
 | `--language`     | Set source language (skips auto-detection, loads best model)   | Auto-detect         | `--language te`                                |
-| `--model`        | Whisper model size: `tiny`, `base`, `small`, `medium`, `large` | `base`              | `--model large`                                |
+| `--model`        | Whisper model size: `tiny`, `base`, `small`, `medium`, `large` | `large`             | `--model base`                                 |
 | `--engine`       | ASR engine: `whisper` or `qwen`                                | `whisper`           | `--engine qwen`                                |
 | `--diarize`      | Enable speaker diarization (who spoke when)                    | Off                 | `--diarize`                                    |
 | `--num-speakers` | Exact speaker count (improves diarization accuracy)            | Auto                | `--num-speakers 2`                             |
