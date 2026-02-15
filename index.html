@@ -434,6 +434,77 @@ footer .container{text-align:center}
   margin-top:16px;
 }
 
+/* ═══ CHEAT SHEET ═══ */
+.cheatsheet{background:var(--deep-indigo)}
+.cheat-table-wrap{
+  margin-top:48px;background:rgba(13,11,26,0.85);border-radius:16px;
+  border:1px solid var(--card-border);overflow:hidden;
+  box-shadow:var(--glow-sm);
+}
+.cheat-table-header{
+  padding:16px 28px;border-bottom:1px solid var(--card-border);
+  display:flex;align-items:center;gap:10px;
+}
+.cheat-table-header span{
+  font-family:'JetBrains Mono',monospace;font-size:0.7rem;
+  color:var(--text-dim);letter-spacing:0.08em;margin-left:auto;
+}
+.cheat-table{
+  width:100%;border-collapse:collapse;
+  font-family:'JetBrains Mono',monospace;font-size:0.78rem;
+}
+.cheat-table thead th{
+  text-align:left;padding:14px 20px;font-weight:500;font-size:0.68rem;
+  letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--saffron);border-bottom:1px solid var(--card-border);
+  background:rgba(232,119,46,0.03);
+}
+.cheat-table tbody td{
+  padding:12px 20px;border-bottom:1px solid rgba(232,119,46,0.04);
+  color:var(--cream-dim);vertical-align:top;
+}
+.cheat-table tbody tr:last-child td{border-bottom:none}
+.cheat-table tbody tr:hover{background:rgba(232,119,46,0.03)}
+.cheat-table code{
+  font-family:'JetBrains Mono',monospace;font-size:0.75rem;
+  padding:2px 8px;border-radius:4px;
+  background:rgba(232,119,46,0.08);color:var(--saffron);
+  white-space:nowrap;
+}
+.cheat-table .flag-default{
+  font-size:0.68rem;color:var(--text-dim);
+}
+.cheat-note{
+  margin-top:24px;padding:20px 28px;border-radius:12px;
+  background:rgba(232,119,46,0.04);border:1px solid rgba(232,119,46,0.12);
+  font-size:0.88rem;color:var(--cream-dim);line-height:1.8;
+}
+.cheat-note strong{color:var(--saffron);font-weight:600}
+.cheat-note code{
+  font-family:'JetBrains Mono',monospace;font-size:0.78rem;
+  padding:1px 6px;border-radius:3px;
+  background:rgba(232,119,46,0.1);color:var(--saffron);
+}
+.cheat-examples{
+  margin-top:32px;display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));
+  gap:16px;
+}
+.cheat-example{
+  background:rgba(13,11,26,0.7);border:1px solid var(--card-border);
+  border-radius:12px;padding:20px 24px;
+}
+.cheat-example-label{
+  font-family:'JetBrains Mono',monospace;font-size:0.65rem;
+  letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dim);
+  margin-bottom:10px;
+}
+.cheat-example-cmd{
+  font-family:'JetBrains Mono',monospace;font-size:0.78rem;
+  color:var(--cream-dim);line-height:1.8;
+}
+.cheat-example-cmd .p{color:var(--saffron)}
+.cheat-example-cmd .c{color:var(--text-dim);font-style:italic}
+
 /* ═══ HIGHLIGHT CARDS ═══ */
 .highlight-section{background:linear-gradient(180deg,var(--deep-indigo) 0%,var(--indigo-mid) 100%)}
 .highlights-grid{
@@ -494,6 +565,120 @@ footer .container{text-align:center}
   .highlights-grid{grid-template-columns:1fr}
 }
 
+/* ═══ FAQ ═══ */
+.faq{background:linear-gradient(180deg,var(--deep-indigo) 0%,var(--indigo-mid) 100%)}
+.faq-grid{margin-top:48px;display:flex;flex-direction:column;gap:12px;max-width:860px}
+.faq-item{
+  background:var(--card-bg);border:1px solid var(--card-border);
+  border-radius:12px;overflow:hidden;transition:all 0.3s;
+}
+.faq-item:hover{border-color:rgba(232,119,46,0.2)}
+.faq-q{
+  padding:20px 28px;cursor:pointer;display:flex;align-items:center;
+  justify-content:space-between;gap:16px;
+  font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;
+  color:var(--cream);transition:color 0.3s;user-select:none;
+}
+.faq-q:hover{color:var(--saffron)}
+.faq-q::after{
+  content:'+';font-family:'JetBrains Mono',monospace;font-size:1.3rem;
+  color:var(--saffron);transition:transform 0.3s;flex-shrink:0;
+}
+.faq-item.open .faq-q::after{transform:rotate(45deg)}
+.faq-a{
+  max-height:0;overflow:hidden;transition:max-height 0.4s cubic-bezier(0.16,1,0.3,1);
+}
+.faq-item.open .faq-a{max-height:400px}
+.faq-a-inner{
+  padding:0 28px 24px;color:var(--text-secondary);font-size:0.92rem;line-height:1.8;
+  border-top:1px solid rgba(232,119,46,0.06);padding-top:16px;
+}
+.faq-a-inner code{
+  font-family:'JetBrains Mono',monospace;font-size:0.8rem;
+  padding:1px 6px;border-radius:3px;
+  background:rgba(232,119,46,0.08);color:var(--saffron);
+}
+.faq-a-inner a{color:var(--saffron);text-decoration:underline;text-underline-offset:3px}
+
+/* ═══ FLOWCHART ═══ */
+.flowchart{background:var(--indigo-mid)}
+.flow-container{
+  margin-top:48px;max-width:900px;margin-left:auto;margin-right:auto;
+  position:relative;
+}
+.flow-row{
+  display:flex;align-items:stretch;gap:0;position:relative;
+}
+.flow-row+.flow-row{margin-top:0}
+.flow-node{
+  flex:1;padding:18px 16px;text-align:center;
+  background:var(--card-bg);border:1px solid var(--card-border);
+  border-radius:10px;position:relative;
+  transition:all 0.3s;min-width:0;
+}
+.flow-node:hover{border-color:rgba(232,119,46,0.3);box-shadow:var(--glow-sm)}
+.flow-node-icon{font-size:1.3rem;margin-bottom:6px}
+.flow-node-label{
+  font-family:'JetBrains Mono',monospace;font-size:0.68rem;
+  color:var(--cream-dim);line-height:1.4;
+}
+.flow-node-sub{
+  font-family:'JetBrains Mono',monospace;font-size:0.55rem;
+  color:var(--text-dim);margin-top:4px;
+}
+.flow-connector{
+  display:flex;align-items:center;justify-content:center;
+  padding:0 8px;flex-shrink:0;
+}
+.flow-connector-v{
+  display:flex;justify-content:center;padding:8px 0;
+}
+.flow-arrow{color:var(--saffron);font-size:1rem;opacity:0.5}
+.flow-arrow-down{color:var(--saffron);font-size:1rem;opacity:0.5}
+.flow-decision{
+  background:rgba(232,119,46,0.06);border:1px dashed rgba(232,119,46,0.3);
+  border-radius:10px;padding:16px;text-align:center;position:relative;
+}
+.flow-decision-label{
+  font-family:'JetBrains Mono',monospace;font-size:0.72rem;
+  color:var(--saffron);font-weight:500;margin-bottom:4px;
+}
+.flow-decision-sub{
+  font-family:'JetBrains Mono',monospace;font-size:0.6rem;
+  color:var(--text-dim);
+}
+.flow-branch{
+  display:flex;gap:12px;margin-top:0;
+}
+.flow-branch-item{
+  flex:1;padding:14px 12px;text-align:center;
+  background:var(--card-bg);border:1px solid var(--card-border);
+  border-radius:10px;transition:all 0.3s;
+}
+.flow-branch-item:hover{border-color:rgba(232,119,46,0.3)}
+.flow-branch-label{
+  font-family:'JetBrains Mono',monospace;font-size:0.65rem;
+  color:var(--cream-dim);
+}
+.flow-branch-sub{
+  font-family:'JetBrains Mono',monospace;font-size:0.55rem;
+  color:var(--text-dim);margin-top:2px;
+}
+.flow-yes-no{
+  font-family:'JetBrains Mono',monospace;font-size:0.6rem;
+  color:var(--saffron);font-weight:500;
+}
+.flow-optional{
+  border:1px dashed rgba(212,168,67,0.3);
+  background:rgba(212,168,67,0.03);
+}
+.flow-optional .flow-node-label{color:var(--gold)}
+.flow-end{
+  border-color:rgba(232,119,46,0.4);
+  background:rgba(232,119,46,0.05);
+}
+.flow-end .flow-node-label{color:var(--saffron);font-weight:500}
+
 /* ═══ RESPONSIVE ═══ */
 @media(max-width:900px){
   .steps-grid{grid-template-columns:1fr}
@@ -502,6 +687,11 @@ footer .container{text-align:center}
   .hero-deco{display:none}
   .pipeline{flex-wrap:wrap;gap:8px}
   .pipe-arrow{transform:rotate(90deg);padding:4px 0}
+  .cheat-table-wrap{overflow-x:auto}
+  .cheat-examples{grid-template-columns:1fr}
+  .flow-row{flex-wrap:wrap;gap:8px}
+  .flow-connector{display:none}
+  .flow-branch{flex-direction:column}
 }
 @media(max-width:600px){
   section{padding:80px 0}
@@ -510,6 +700,8 @@ footer .container{text-align:center}
   .lang-grid{grid-template-columns:1fr 1fr}
   .install-prereqs{gap:24px}
   .hero h1{font-size:2.4rem}
+  .cheat-table{font-size:0.7rem}
+  .cheat-table thead th,.cheat-table tbody td{padding:10px 12px}
 }
 </style>
 </head>
@@ -521,8 +713,10 @@ footer .container{text-align:center}
     <a href="#" class="nav-brand">Indic<span>Voice</span></a>
     <ul class="nav-links">
       <li><a href="#how">How it works</a></li>
+      <li><a href="#cheatsheet">Cheat Sheet</a></li>
       <li><a href="#languages">Languages</a></li>
       <li><a href="#features">Features</a></li>
+      <li><a href="#faq">FAQ</a></li>
       <li><a href="#install">Install</a></li>
       <li><a href="https://github.com/humancto/indic-voice-pipeline">GitHub</a></li>
     </ul>
@@ -600,6 +794,130 @@ footer .container{text-align:center}
         <div><span class="code-output">&#x2714; </span><span class="code-text">Loaded vasista22/whisper-telugu-large-v2 on MPS</span></div>
         <div><span class="code-output">&#x2714; </span><span class="code-text">Transcribed in 12.3s</span></div>
         <div><span class="code-output">&#x2714; </span><span class="code-text">Saved: transcript.txt, transcript.srt, transcript.json</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CHEAT SHEET ═══ -->
+<section class="cheatsheet" id="cheatsheet">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Quick Reference</div>
+      <h2 class="section-title">Cheat sheet.</h2>
+      <p class="section-subtitle">Every flag you need, at a glance. All flags are optional — sensible defaults are built in.</p>
+      <div class="divider"></div>
+    </div>
+
+    <div class="cheat-table-wrap reveal">
+      <div class="cheat-table-header">
+        <span class="code-dot"></span>
+        <span class="code-dot"></span>
+        <span class="code-dot"></span>
+        <span>flags reference</span>
+      </div>
+      <table class="cheat-table">
+        <thead>
+          <tr>
+            <th>Flag</th>
+            <th>What it does</th>
+            <th>Default</th>
+            <th>Example</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>--language</code></td>
+            <td>Set source language (skips detection, loads best model)</td>
+            <td class="flag-default">Auto-detect</td>
+            <td><code>--language te</code></td>
+          </tr>
+          <tr>
+            <td><code>--model</code></td>
+            <td>Whisper model size: tiny, base, small, medium, large</td>
+            <td class="flag-default">base</td>
+            <td><code>--model large</code></td>
+          </tr>
+          <tr>
+            <td><code>--engine</code></td>
+            <td>ASR engine: whisper or qwen</td>
+            <td class="flag-default">whisper</td>
+            <td><code>--engine qwen</code></td>
+          </tr>
+          <tr>
+            <td><code>--diarize</code></td>
+            <td>Enable speaker diarization (who spoke when)</td>
+            <td class="flag-default">Off</td>
+            <td><code>--diarize</code></td>
+          </tr>
+          <tr>
+            <td><code>--num-speakers</code></td>
+            <td>Exact speaker count (improves diarization accuracy)</td>
+            <td class="flag-default">Auto</td>
+            <td><code>--num-speakers 2</code></td>
+          </tr>
+          <tr>
+            <td><code>--hf-token</code></td>
+            <td>HuggingFace token for diarization</td>
+            <td class="flag-default">$HF_TOKEN env</td>
+            <td><code>--hf-token hf_...</code></td>
+          </tr>
+          <tr>
+            <td><code>--output-dir</code></td>
+            <td>Where to save output files</td>
+            <td class="flag-default">~/Downloads</td>
+            <td><code>--output-dir ./out</code></td>
+          </tr>
+          <tr>
+            <td><code>--hf-model</code></td>
+            <td>Override with any HuggingFace Whisper model</td>
+            <td class="flag-default">Auto-selected</td>
+            <td><code>--hf-model vasista22/...</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="cheat-note reveal">
+      <strong>Diarization note:</strong> <code>--diarize</code> is off by default. When enabled, it requires a HuggingFace token. If no token is detected, the pipeline prints a helpful message and <strong>continues transcription without speaker labels</strong> — it never fails or crashes.
+    </div>
+
+    <div class="cheat-examples reveal">
+      <div class="cheat-example">
+        <div class="cheat-example-label">Basic transcription</div>
+        <div class="cheat-example-cmd">
+          <span class="p">$ </span>transcribe video.mp4 --language te
+        </div>
+      </div>
+      <div class="cheat-example">
+        <div class="cheat-example-label">With speaker labels</div>
+        <div class="cheat-example-cmd">
+          <span class="p">$ </span>transcribe interview.mp4 --diarize --num-speakers 2
+        </div>
+      </div>
+      <div class="cheat-example">
+        <div class="cheat-example-label">Max accuracy</div>
+        <div class="cheat-example-cmd">
+          <span class="p">$ </span>transcribe speech.mp4 --model large --language hi --diarize
+        </div>
+      </div>
+      <div class="cheat-example">
+        <div class="cheat-example-label">Qwen engine + diarize</div>
+        <div class="cheat-example-cmd">
+          <span class="p">$ </span>transcribe podcast.mp3 --engine qwen --diarize
+        </div>
+      </div>
+      <div class="cheat-example">
+        <div class="cheat-example-label">Translate to English</div>
+        <div class="cheat-example-cmd">
+          <span class="p">$ </span>translate speech.mp4 --language te
+        </div>
+      </div>
+      <div class="cheat-example">
+        <div class="cheat-example-label">Custom HF model</div>
+        <div class="cheat-example-cmd">
+          <span class="p">$ </span>transcribe audio.wav --hf-model vasista22/whisper-telugu-large-v2
+        </div>
       </div>
     </div>
   </div>
@@ -893,6 +1211,243 @@ footer .container{text-align:center}
   </div>
 </section>
 
+<!-- ═══ FAQ ═══ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">FAQ</div>
+      <h2 class="section-title">Defaults &amp; common questions.</h2>
+      <p class="section-subtitle">Everything you need to know about how the pipeline behaves out of the box.</p>
+      <div class="divider"></div>
+    </div>
+
+    <div class="faq-grid reveal">
+
+      <div class="faq-item">
+        <div class="faq-q">Is diarization (speaker labels) on by default?</div>
+        <div class="faq-a"><div class="faq-a-inner">
+          <strong>No.</strong> Diarization is off by default. Add <code>--diarize</code> to enable it. It requires pyannote.audio + a free HuggingFace token. If you use <code>--diarize</code> without a token, the pipeline warns you and continues transcription without speaker labels — it never crashes.
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Do I need a HuggingFace token?</div>
+        <div class="faq-a"><div class="faq-a-inner">
+          Only for speaker diarization (<code>--diarize</code>). Everything else — transcription, translation, language detection — works without any token or account. The token is free (read-only access) at <a href="https://huggingface.co/settings/tokens">huggingface.co/settings/tokens</a>. You also need to accept <strong>both</strong> model licenses: <a href="https://huggingface.co/pyannote/speaker-diarization-3.1">speaker-diarization-3.1</a> and <a href="https://huggingface.co/pyannote/segmentation-3.0">segmentation-3.0</a>.
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Is the HF token needed every time, or just for the first download?</div>
+        <div class="faq-a"><div class="faq-a-inner">
+          <strong>Every time.</strong> pyannote authenticates on every load, not just the initial model download. Set it permanently: <code>echo 'export HF_TOKEN="hf_..."' >> ~/.zshrc && source ~/.zshrc</code>
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Do Whisper models re-download every time?</div>
+        <div class="faq-a"><div class="faq-a-inner">
+          <strong>No.</strong> Models are downloaded once and cached permanently. Standard Whisper models are cached at <code>~/.cache/whisper/</code>, HuggingFace models at <code>~/.cache/huggingface/</code>, and pyannote models at <code>~/.cache/torch/pyannote/</code>. Subsequent runs load instantly from cache.
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">What's the default Whisper model size?</div>
+        <div class="faq-a"><div class="faq-a-inner">
+          <strong>base</strong> (74 MB) — good balance of speed and accuracy for clear audio. Use <code>--model medium</code> (769 MB) for non-English or noisy audio, or <code>--model large</code> (1.5 GB) for maximum accuracy. When you pass <code>--language te</code> (Telugu) or other Indian languages, a fine-tuned model is loaded automatically regardless of <code>--model</code>.
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Which ASR engine is used by default?</div>
+        <div class="faq-a"><div class="faq-a-inner">
+          <strong>Whisper</strong> is the default engine. Use <code>--engine qwen</code> to switch to Qwen3-ASR-1.7B. Qwen supports Hindi + ~30 languages. For Indian languages not supported by Qwen (Telugu, Kannada, etc.), it automatically falls back to Whisper with the right fine-tuned model.
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Where do output files go?</div>
+        <div class="faq-a"><div class="faq-a-inner">
+          <strong>~/Downloads</strong> by default. Every transcription produces three files: <code>.txt</code> (plain text), <code>.srt</code> (subtitles with timestamps), and <code>.json</code> (structured data with segments). Override with <code>--output-dir ./my-folder</code>.
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Does this work offline?</div>
+        <div class="faq-a"><div class="faq-a-inner">
+          <strong>Yes</strong> — after the initial model download. Transcription, translation, and diarization all run 100% locally. You only need internet to download videos (yt-dlp) and to download models the first time.
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">What happens if diarization fails?</div>
+        <div class="faq-a"><div class="faq-a-inner">
+          The pipeline degrades gracefully. If pyannote isn't installed, or the token is missing, or diarization hits an error — you get a warning message and transcription continues normally without speaker labels. You never lose your transcript.
+        </div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FLOWCHART ═══ -->
+<section class="flowchart" id="flowchart">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Decision Flow</div>
+      <h2 class="section-title">How the pipeline thinks.</h2>
+      <p class="section-subtitle">From your input to final output — every decision the pipeline makes automatically.</p>
+      <div class="divider"></div>
+    </div>
+
+    <div class="flow-container reveal">
+      <!-- Row 1: Input -->
+      <div class="flow-row">
+        <div class="flow-node" style="flex:2">
+          <div class="flow-node-icon">&#x1F4AC;</div>
+          <div class="flow-node-label">Your command</div>
+          <div class="flow-node-sub">"Transcribe video.mp4 --language te --diarize"</div>
+        </div>
+      </div>
+      <div class="flow-connector-v"><span class="flow-arrow-down">&#x25BC;</span></div>
+
+      <!-- Row 2: Is it a URL or file? -->
+      <div class="flow-row">
+        <div class="flow-decision" style="flex:2">
+          <div class="flow-decision-label">URL or local file?</div>
+        </div>
+      </div>
+      <div class="flow-connector-v">
+        <span class="flow-yes-no" style="margin-right:120px">URL</span>
+        <span style="display:inline-block;width:40px"></span>
+        <span class="flow-yes-no" style="margin-left:120px">File</span>
+      </div>
+
+      <!-- Row 3: Branch -->
+      <div class="flow-branch">
+        <div class="flow-branch-item">
+          <div class="flow-node-icon">&#x1F4E5;</div>
+          <div class="flow-branch-label">yt-dlp Download</div>
+          <div class="flow-branch-sub">1000+ sites supported</div>
+        </div>
+        <div class="flow-branch-item">
+          <div class="flow-node-icon">&#x1F4C1;</div>
+          <div class="flow-branch-label">Use local file directly</div>
+          <div class="flow-branch-sub">mp4, mp3, wav, mkv, webm...</div>
+        </div>
+      </div>
+      <div class="flow-connector-v"><span class="flow-arrow-down">&#x25BC;</span></div>
+
+      <!-- Row 4: Audio extraction -->
+      <div class="flow-row">
+        <div class="flow-node" style="flex:2">
+          <div class="flow-node-icon">&#x1F3B5;</div>
+          <div class="flow-node-label">ffmpeg audio extraction</div>
+          <div class="flow-node-sub">16kHz mono WAV for inference</div>
+        </div>
+      </div>
+      <div class="flow-connector-v"><span class="flow-arrow-down">&#x25BC;</span></div>
+
+      <!-- Row 5: Language decision -->
+      <div class="flow-row">
+        <div class="flow-decision" style="flex:2">
+          <div class="flow-decision-label">--language flag provided?</div>
+        </div>
+      </div>
+      <div class="flow-connector-v">
+        <span class="flow-yes-no" style="margin-right:120px">No</span>
+        <span style="display:inline-block;width:40px"></span>
+        <span class="flow-yes-no" style="margin-left:120px">Yes</span>
+      </div>
+
+      <div class="flow-branch">
+        <div class="flow-branch-item">
+          <div class="flow-node-icon">&#x1F50D;</div>
+          <div class="flow-branch-label">Auto-detect language</div>
+          <div class="flow-branch-sub">First 30s of audio analyzed</div>
+        </div>
+        <div class="flow-branch-item">
+          <div class="flow-node-icon">&#x2705;</div>
+          <div class="flow-branch-label">Skip detection, use provided</div>
+          <div class="flow-branch-sub">Faster, loads best model directly</div>
+        </div>
+      </div>
+      <div class="flow-connector-v"><span class="flow-arrow-down">&#x25BC;</span></div>
+
+      <!-- Row 6: Engine selection -->
+      <div class="flow-row">
+        <div class="flow-decision" style="flex:2">
+          <div class="flow-decision-label">Which engine? (default: whisper)</div>
+        </div>
+      </div>
+      <div class="flow-connector-v">
+        <span class="flow-yes-no" style="margin-right:120px">Whisper</span>
+        <span style="display:inline-block;width:40px"></span>
+        <span class="flow-yes-no" style="margin-left:120px">Qwen</span>
+      </div>
+
+      <div class="flow-branch">
+        <div class="flow-branch-item">
+          <div class="flow-node-icon">&#x1F917;</div>
+          <div class="flow-branch-label">Model Router</div>
+          <div class="flow-branch-sub">vasista22 (te/hi/kn/gu/ta)<br>AI4Bharat (bn/ml/mr/or/pa/sa/ur)<br>Standard Whisper (others)</div>
+        </div>
+        <div class="flow-branch-item">
+          <div class="flow-node-icon">&#x1F680;</div>
+          <div class="flow-branch-label">Qwen3-ASR-1.7B</div>
+          <div class="flow-branch-sub">30+ languages supported<br>Falls back to Whisper if unsupported</div>
+        </div>
+      </div>
+      <div class="flow-connector-v"><span class="flow-arrow-down">&#x25BC;</span></div>
+
+      <!-- Row 7: Chunked inference -->
+      <div class="flow-row">
+        <div class="flow-node" style="flex:2">
+          <div class="flow-node-icon">&#x1F9E9;</div>
+          <div class="flow-node-label">Chunked inference (25s windows, 5s overlap)</div>
+          <div class="flow-node-sub">Smart merge with word-level dedup at boundaries</div>
+        </div>
+      </div>
+      <div class="flow-connector-v"><span class="flow-arrow-down">&#x25BC;</span></div>
+
+      <!-- Row 8: Diarization decision -->
+      <div class="flow-row">
+        <div class="flow-decision" style="flex:2">
+          <div class="flow-decision-label">--diarize flag set?</div>
+        </div>
+      </div>
+      <div class="flow-connector-v">
+        <span class="flow-yes-no" style="margin-right:120px">Yes</span>
+        <span style="display:inline-block;width:40px"></span>
+        <span class="flow-yes-no" style="margin-left:120px">No</span>
+      </div>
+
+      <div class="flow-branch">
+        <div class="flow-branch-item flow-optional">
+          <div class="flow-node-icon">&#x1F399;&#xFE0F;</div>
+          <div class="flow-branch-label" style="color:var(--gold)">pyannote diarization</div>
+          <div class="flow-branch-sub">Needs HF token + both licenses<br>No token? Warns &amp; skips gracefully</div>
+        </div>
+        <div class="flow-branch-item">
+          <div class="flow-node-icon">&#x23E9;</div>
+          <div class="flow-branch-label">Skip diarization</div>
+          <div class="flow-branch-sub">Output without speaker labels</div>
+        </div>
+      </div>
+      <div class="flow-connector-v"><span class="flow-arrow-down">&#x25BC;</span></div>
+
+      <!-- Row 9: Output -->
+      <div class="flow-row">
+        <div class="flow-node flow-end" style="flex:2">
+          <div class="flow-node-icon">&#x1F4C2;</div>
+          <div class="flow-node-label">.txt &nbsp; .srt &nbsp; .json</div>
+          <div class="flow-node-sub">With or without [Speaker N] labels depending on diarization</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ═══ INSTALL ═══ -->
 <section class="install" id="install">
   <div class="container">
@@ -923,7 +1478,16 @@ footer .container{text-align:center}
           <br>
           <div><span class="comment"># Optional: enable speaker diarization</span></div>
           <div><span class="prompt">$ </span><span class="cmd">pip install pyannote.audio</span></div>
-          <div><span class="prompt">$ </span><span class="cmd">export HF_TOKEN=hf_your_token_here</span> <span class="comment"># free at huggingface.co/settings/tokens</span></div>
+          <br>
+          <div><span class="comment"># Get a free token at huggingface.co/settings/tokens</span></div>
+          <div><span class="comment"># Then accept BOTH model licenses (required):</span></div>
+          <div><span class="comment">#   1. huggingface.co/pyannote/speaker-diarization-3.1</span></div>
+          <div><span class="comment">#   2. huggingface.co/pyannote/segmentation-3.0</span></div>
+          <br>
+          <div><span class="comment"># Set token permanently (needed every run, not just first time)</span></div>
+          <div><span class="prompt">$ </span><span class="cmd">echo 'export HF_TOKEN="hf_..."' >> ~/.zshrc && source ~/.zshrc</span></div>
+          <br>
+          <div><span class="comment"># Now use it:</span></div>
           <div><span class="prompt">&gt; </span><span class="cmd">"Transcribe podcast.mp4 --language hi --diarize --num-speakers 2"</span></div>
         </div>
       </div>
@@ -1071,14 +1635,27 @@ footer .container{text-align:center}
   </div>
 </footer>
 
-<!-- ═══ SCROLL REVEAL (vanilla JS, no libraries) ═══ -->
+<!-- ═══ SCROLL REVEAL + FAQ TOGGLE (vanilla JS, no libraries) ═══ -->
 <script>
 (function(){
+  // Scroll reveal
   const els=document.querySelectorAll('.reveal');
   const observer=new IntersectionObserver((entries)=>{
     entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})
   },{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
   els.forEach(el=>observer.observe(el));
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(q=>{
+    q.addEventListener('click',()=>{
+      const item=q.parentElement;
+      const wasOpen=item.classList.contains('open');
+      // Close all
+      document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));
+      // Toggle clicked
+      if(!wasOpen) item.classList.add('open');
+    });
+  });
 })();
 </script>
 
