@@ -1091,6 +1091,13 @@ def cmd_transcribe(args):
     if getattr(args, "diarize", False):
         try:
             hf_token = resolve_hf_token(args)
+            if not hf_token:
+                eprint("Warning: No HuggingFace token found. Diarization requires a token.")
+                eprint("  Set HF_TOKEN in your environment:  export HF_TOKEN=\"hf_...\"")
+                eprint("  Or pass --hf-token hf_...  on the command line.")
+                eprint("  Get a free token at: https://huggingface.co/settings/tokens")
+                eprint("Skipping diarization — transcription will continue without speaker labels.")
+                raise RuntimeError("HF_TOKEN not set")
             diar_pipeline = load_diarization_pipeline(hf_token)
 
             diar_start = time.time()

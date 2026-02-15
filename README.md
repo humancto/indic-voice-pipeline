@@ -158,6 +158,21 @@ bash uninstall.sh
 
 Once installed, just talk to Claude naturally. The skills are triggered automatically based on your intent.
 
+### Quick Reference — Top Flags
+
+| Flag             | What it does                                                   | Default             | Example                                        |
+| ---------------- | -------------------------------------------------------------- | ------------------- | ---------------------------------------------- |
+| `--language`     | Set source language (skips auto-detection, loads best model)   | Auto-detect         | `--language te`                                |
+| `--model`        | Whisper model size: `tiny`, `base`, `small`, `medium`, `large` | `base`              | `--model large`                                |
+| `--engine`       | ASR engine: `whisper` or `qwen`                                | `whisper`           | `--engine qwen`                                |
+| `--diarize`      | Enable speaker diarization (who spoke when)                    | Off                 | `--diarize`                                    |
+| `--num-speakers` | Exact speaker count (improves diarization accuracy)            | Auto                | `--num-speakers 2`                             |
+| `--hf-token`     | HuggingFace token for diarization                              | `$HF_TOKEN` env var | `--hf-token hf_...`                            |
+| `--output-dir`   | Where to save output files                                     | `~/Downloads`       | `--output-dir ./out`                           |
+| `--hf-model`     | Override with any HuggingFace Whisper model                    | Auto-selected       | `--hf-model vasista22/whisper-telugu-large-v2` |
+
+> **Diarization note:** `--diarize` is off by default. When enabled, it requires a HuggingFace token (via `--hf-token` or `$HF_TOKEN`). If no token is found, the pipeline prints a helpful message and continues transcription without speaker labels — it never fails.
+
 ### Download a Video
 
 ```
@@ -235,9 +250,14 @@ pip install pyannote.audio
 
 Go to [huggingface.co/settings/tokens](https://huggingface.co/settings/tokens) and create a token.
 
-**Step 3:** Accept the pyannote model license
+**Step 3:** Accept the pyannote model licenses
 
-Visit [huggingface.co/pyannote/speaker-diarization-3.1](https://huggingface.co/pyannote/speaker-diarization-3.1) and accept the license agreement.
+You must accept **both** gated model licenses on HuggingFace (free, instant approval):
+
+1. **Speaker Diarization 3.1** — [huggingface.co/pyannote/speaker-diarization-3.1](https://huggingface.co/pyannote/speaker-diarization-3.1) → Click "Agree and access repository"
+2. **Segmentation 3.0** — [huggingface.co/pyannote/segmentation-3.0](https://huggingface.co/pyannote/segmentation-3.0) → Click "Agree and access repository"
+
+> **Important:** Both licenses are required. The diarization pipeline internally depends on the segmentation model. If you only accept the first one, you'll get a `403 Forbidden` error.
 
 **Step 4:** Provide your token (choose one method)
 
@@ -249,7 +269,14 @@ Visit [huggingface.co/pyannote/speaker-diarization-3.1](https://huggingface.co/p
 export HF_TOKEN="hf_..."
 ```
 
-> The pyannote model (~300 MB) is downloaded once on first use and cached permanently.
+> **Token is required every run**, not just for the initial model download. pyannote uses it for authentication on each load. The recommended approach is to set it permanently in your shell profile:
+>
+> ```bash
+> echo 'export HF_TOKEN="hf_your_token_here"' >> ~/.zshrc
+> source ~/.zshrc
+> ```
+>
+> The pyannote models (~300 MB total) are downloaded once on first use and cached permanently at `~/.cache/torch/pyannote/`.
 
 ### Diarization Flags
 
@@ -706,18 +733,18 @@ indic-voice-pipeline/
 
 See [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) for detailed solutions. Quick fixes:
 
-| Problem                              | Solution                                                                                                    |
-| ------------------------------------ | ----------------------------------------------------------------------------------------------------------- |
-| `torch_dtype is deprecated`          | Ignore — cosmetic warning, doesn't affect output                                                            |
-| `transformers requires torch >= 2.6` | Pin transformers: `pip install transformers==4.46.3`                                                        |
-| `numpy >= 2.0 incompatible`          | Downgrade: `pip install "numpy<2"`                                                                          |
-| `suppress_tokens index error`        | Already fixed in the script — update to latest version                                                      |
-| `IndicWhisper download fails`        | Check internet connection, retry, or download ZIP manually                                                  |
-| `MPS out of memory`                  | Use a smaller model: `--model small` or `--model base`                                                      |
-| `pyannote not installed` warning     | `pip install pyannote.audio` — only needed for `--diarize`                                                  |
-| `pyannote license not accepted`      | Visit [pyannote model page](https://huggingface.co/pyannote/speaker-diarization-3.1) and accept the license |
-| `HF_TOKEN not set` for diarization   | `export HF_TOKEN="hf_..."` or pass `--hf-token hf_...`                                                      |
-| Qwen unsupported language fallback   | Expected behavior — pipeline auto-switches to Whisper                                                       |
+| Problem                                           | Solution                                                                                                                                                                              |
+| ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `torch_dtype is deprecated`                       | Ignore — cosmetic warning, doesn't affect output                                                                                                                                      |
+| `transformers requires torch >= 2.6`              | Pin transformers: `pip install transformers==4.46.3`                                                                                                                                  |
+| `numpy >= 2.0 incompatible`                       | Downgrade: `pip install "numpy<2"`                                                                                                                                                    |
+| `suppress_tokens index error`                     | Already fixed in the script — update to latest version                                                                                                                                |
+| `IndicWhisper download fails`                     | Check internet connection, retry, or download ZIP manually                                                                                                                            |
+| `MPS out of memory`                               | Use a smaller model: `--model small` or `--model base`                                                                                                                                |
+| `pyannote not installed` warning                  | `pip install pyannote.audio` — only needed for `--diarize`                                                                                                                            |
+| `pyannote license not accepted` / `403 Forbidden` | Accept **both** licenses: [speaker-diarization-3.1](https://huggingface.co/pyannote/speaker-diarization-3.1) AND [segmentation-3.0](https://huggingface.co/pyannote/segmentation-3.0) |
+| `HF_TOKEN not set` for diarization                | `export HF_TOKEN="hf_..."` or pass `--hf-token hf_...`                                                                                                                                |
+| Qwen unsupported language fallback                | Expected behavior — pipeline auto-switches to Whisper                                                                                                                                 |
 
 ---
 
